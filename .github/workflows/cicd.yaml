@@ -33,3 +33,11 @@ jobs:
             ./script.sh
             # Add more commands as needed
           EOF
+      - name: deploy to k8s cluster
+        run: |
+          ssh -i ~/.ssh/id_rsa ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} << 'EOF'
+            # List the commands you want to run on the EC2 instance
+            echo "Running on EC2 instance"
+            chmod +x ~/mario_game_action/k8s-mario/k8s.sh
+            ./k8s.sh
+          EOF

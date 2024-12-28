@@ -18,16 +18,9 @@ sudo apt-get install unzip -y
 #yes | unzip awscliv2.zip
 sudo ./aws/install
 
-# Terrafrom 
+# Terraform 
 cd /home/ubuntu/mario_game_action/k8s-mario/EKS-TF/
 terraform init
 terraform validate
 terraform plan
 terraform apply -auto-approve
-
-#Deploy K8s services
-aws eks update-kubeconfig --name EKS_CLOUD --region ap-south-1
-kubectl apply -f ../deployment.yaml
-kubectl apply -f ../service.yaml
-kubectl describe svc mario-service
-echo "Installation completed successfully."
