@@ -24,5 +24,8 @@ terraform init
 terraform validate
 terrafrom plan
 terraform apply -auto-approve
-
+aws eks update-kubeconfig --name EKS_CLOUD --region ap-south-1
+kubectl apply -f ../deployment.yaml
+kubectl apply -f ../service.yaml
+kubectl describe svc mario-service
 echo "Installation completed successfully."

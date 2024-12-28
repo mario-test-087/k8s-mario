@@ -32,5 +32,4 @@ jobs:
             sudo chmod +x *.sh
             ./script.sh
             # Add more commands as needed
-            ./terra.sh
           EOF
