@@ -39,5 +39,5 @@ jobs:
             # List the commands you want to run on the EC2 instance
             echo "Running on EC2 instance"
             chmod +x /home/ubuntu/mario_game_action/k8s-mario/k8s.sh
-            ./home/ubuntu/mario_game_action/k8s-mario/k8s.sh
+            sh /home/ubuntu/mario_game_action/k8s-mario/k8s.sh
           EOF
