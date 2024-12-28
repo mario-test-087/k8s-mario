@@ -18,4 +18,11 @@ sudo apt-get install unzip -y
 unzip awscliv2.zip
 sudo ./aws/install
 
+# Terrafrom 
+cd /home/ubuntu/mario_game_action/k8s-mario/EKS-TF/
+terraform init
+terraform validate
+terrafrom plan
+terraform apply -auto-approve
+
 echo "Installation completed successfully."
