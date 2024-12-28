@@ -15,5 +15,5 @@ jobs:
             ssh-keyscan -H ${{ secrets.SSH_HOST }} > ~/.ssh/known_hosts
             ls -lart ~/.ssh/
         - name: connect and pull
-          run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "ls -lart"
+          run: ssh -i ~/.ssh/id_rsa ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "ls -lart"
 
