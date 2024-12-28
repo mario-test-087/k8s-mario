@@ -19,8 +19,3 @@ unzip awscliv2.zip
 sudo ./aws/install
 
 echo "Installation completed successfully."
-cd EKS-TF
-terraform init
-terraform validate
-terrafrom plan
-terraform apply -auto-approve

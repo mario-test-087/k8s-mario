@@ -29,7 +29,8 @@ jobs:
             cd ~/mario_game_action/
             git clone https://github.com/mario-test-087/k8s-mario.git
             cd k8s-mario
-            sudo chmod +x script.sh
+            sudo chmod +x *.sh
             ./script.sh
             # Add more commands as needed
+            ./terra.sh
           EOF
