@@ -22,8 +22,10 @@ sudo ./aws/install
 cd /home/ubuntu/mario_game_action/k8s-mario/EKS-TF/
 terraform init
 terraform validate
-terrafrom plan
+terraform plan
 terraform apply -auto-approve
+
+#Deploy K8s services
 aws eks update-kubeconfig --name EKS_CLOUD --region ap-south-1
 kubectl apply -f ../deployment.yaml
 kubectl apply -f ../service.yaml
