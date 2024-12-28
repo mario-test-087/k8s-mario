@@ -14,6 +14,24 @@ jobs:
             echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
             ssh-keyscan -H ${{ secrets.SSH_HOST }} > ~/.ssh/known_hosts
             ls -lart ~/.ssh/
-        - name: connect and pull
-          run: ssh -i ~/.ssh/id_rsa ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "ls -larth"
+#        - name: connect and pull
+#          run: ssh -i ~/.ssh/id_rsa ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "ls -larth"
+        - name: connect to SSH
+          run: |
+            ssh -i ~/.ssh/id_rsa ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} << 'EOF'
+          # List the commands you want to run on the EC2 instance
+              echo "Running on EC2 instance"
+              mkdir -p ~/mario_game_action/
+              cd ~/mario_game_action/
+              git clone https://github.com/mario-test-087/k8s-mario.git
+              cd k8s-mario
+              sudo chmod +x script.sh
+              ./script.sh
+              aws --version
+              kubectl version --client
+              terraform --version
+              cd EKS-TF
+              terraform init
+          # Add more commands as needed
+        EOF
 
